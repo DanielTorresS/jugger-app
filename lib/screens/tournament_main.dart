@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jugger/screens/tournament_clasification.dart';
+import 'package:jugger/components/salidas_torneo.dart';
 
 import '../core/app_colors.dart';
 
