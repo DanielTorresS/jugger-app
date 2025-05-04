@@ -53,8 +53,7 @@ class ScorePrint extends StatelessWidget {
                 alignment: Alignment.center,
                 //encabezado
                 child: Text(
-                  round,
-                  style: TextStyle(
+                  round,                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -91,10 +90,10 @@ class ScorePrint extends StatelessWidget {
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.calendar_today_outlined, size: 20, color: Colors.black),
+                          Icon(Icons.calendar_month_outlined, size: 20, color: Colors.black),
                           SizedBox(width: 6),
                           Text(
-                            DateFormat('dd-MM-yyyy - h:mm a').format(time),
+                            DateFormat('dd/MM/yyyy - h:mm a').format(time),
                             //time.toString(),
                             style: TextStyle(
                               fontSize: 16,

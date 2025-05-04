@@ -1,36 +1,61 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:jugger/screens/tournament_main.dart';
 
-class NavigationMenu extends StatelessWidget {
-  NavigationMenu({super.key});
-  // pon esto fuera de build
-  final controller = Get.put(NavigationController());
+import '../core/app_colors.dart';
+import '../screens/rules.dart';
+import '../screens/training.dart';
+
+
+class NavigationMenu extends StatefulWidget {
+  const NavigationMenu({super.key});
+
+  @override
+  State<NavigationMenu> createState() => _NavigationMenuState();
+}
+
+class _NavigationMenuState extends State<NavigationMenu> {
+  int _screen = 2; //pag. default
+
+  // Lista de paginas existentes para el menu de navegacion
+  final List<Widget> _screens = [
+    const TournamentMain(),
+    const Training(),
+    const Rules(),
+    Center(child: Text('excersise coming soon',style: TextStyle(color: Colors.white,fontSize: 32),)),
+    Center(child: Text('Settings coming soon',style: TextStyle(color: Colors.white,fontSize: 32),)),
+  ];
+
+  //Iconos del menu de navegacion
+  static const Color iconColor = Colors.black;
+  static const double sizeIcon = 30;
+
+  final List<Widget> _navigationItem = [
+    const Icon(Icons.emoji_events, color: iconColor, size: sizeIcon),
+    const Icon(Icons.scoreboard_outlined, color: iconColor, size: sizeIcon),
+    const Icon(Icons.menu_book, color: iconColor,   size: sizeIcon),
+    const Icon(Icons.fitness_center, color: iconColor, size: sizeIcon),
+    const Icon(Icons.settings, color: iconColor, size: sizeIcon),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Obx(
-        () => NavigationBar(
-          height: 80,
-          elevation: 0,
-          selectedIndex: controller.selectedIndex.value,
-          // actualiza el valorde selectedIndex
-          onDestinationSelected: (index) => controller.selectedIndex.value = index,
-          destinations: const [
-            NavigationDestination(icon: Icon(Icons.menu_book),    label: 'Reglas'),
-            NavigationDestination(icon: Icon(Icons.emoji_events), label: 'Torneos'),
-            NavigationDestination(icon: Icon(Icons.fitness_center), label: 'Ejercicios'),
-            NavigationDestination(icon: Icon(Icons.settings),      label: 'Configuración'),
-          ],
-        ),
+      backgroundColor: AppColors.Background,
+      body: SafeArea(
+        child: _screens[_screen],   // muestra directamente tu ListView
       ),
-      // muestra la pantalla activa
-      body: Obx(() => controller.screens[controller.selectedIndex.value]),
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _screen,
+        height: 75,
+        color: const Color(0xFFFFC400),
+        buttonBackgroundColor: Color(0xFFC53535),
+        backgroundColor: Colors.black,
+        items: _navigationItem,
+        onTap: (int i) {
+          setState(() => _screen = i);
+        },
+      ),
     );
   }
-}
-
-class NavigationController extends GetxController{
-  final Rx<int> selectedIndex = 0.obs;
-  final screens =[Container(color: Colors.green,),Container(color: Colors.blue,),Container(color: Colors.red,),Container(color: Colors.black)];
 }
