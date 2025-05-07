@@ -11,7 +11,7 @@ class AppColors{
   static const Color accent = Color(0xFFFFC400);*/
 
   //Backgrounds
-  static const Color Background = Color(0x00000000);
-  static const Color BackgroundComponent = Color(0xFF1D1E33);
-  static const Color BackgroundComponentSelected = Color(0xFF4F548B);
+  static const Color background = Color(0x00000000);
+  static const Color backgroundComponent = Color(0xFF1D1E33);
+  static const Color backgroundComponentSelected = Color(0xFF4F548B);
 }
