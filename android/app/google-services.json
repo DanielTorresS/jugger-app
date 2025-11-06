@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "114412418929536080079",
+    "project_id": "jugger-app-6d3b8",
+    "storage_bucket": "jugger-app-6d3b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114412418929536080079:android:abcdef123456",
+        "android_client_info": {
+          "package_name": "com.example.jugger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114412418929536080079-abcdefghijklmnop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDummyKeyForDevelopment123456789"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114412418929536080079-abcdefghijklmnop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
